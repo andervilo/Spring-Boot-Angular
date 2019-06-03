@@ -19,6 +19,12 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
   	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
 		.antMatchers("/home").permitAll()
+		.antMatchers("/users").permitAll()
+		.antMatchers("/response").permitAll()
+		.antMatchers("/telefones").permitAll()
+		.antMatchers("/css/**").permitAll()
+		.antMatchers("/js/**").permitAll()
+		.antMatchers("/images/**").permitAll()
 		.antMatchers(HttpMethod.POST, "/login").permitAll()
 		.anyRequest().authenticated()
 		.and()

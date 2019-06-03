@@ -1,5 +1,7 @@
 package br.com.controlefuncionarios.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +17,7 @@ public class Telefones extends BaseEntity {
 	
 	private String numero;
 	
-	@JsonBackReference
+//	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "employee_id", nullable = false)
 	private Employees employee;
@@ -38,6 +40,7 @@ public class Telefones extends BaseEntity {
 	}
 
 	public Employees getEmployee() {
+		employee.setTelefones(new ArrayList<Telefones>());
 		return employee;
 	}
 
